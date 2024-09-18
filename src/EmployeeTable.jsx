@@ -50,15 +50,9 @@ function EmployeeTable() {
 
     return (
         <div style={{ padding: '20px' }}>
-            <h1 style={{
-                display:'flex',
-                justifyContent:'center'
-            }}>Employee Data Table</h1>
+            <h1 style={{ display: 'flex', justifyContent: 'center' }}>Employee Data Table</h1>
             <table border="1" cellPadding="10" cellSpacing="0" style={{ width: '100%', textAlign: 'left' }}>
-                <thead style={{
-                    backgroundColor: '#25be7d',
-                    color:'white'
-                }}>
+                <thead style={{ backgroundColor: '#25be7d', color: 'white' }}>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
@@ -79,26 +73,44 @@ function EmployeeTable() {
             </table>
 
             {/* Pagination Controls */}
-            <div style={{
-                display:'flex',
-                justifyContent:'center',
-                paddingTop:'5px'
-            }}>
-                <button onClick={handlePrevious} disabled={currentPage === 1} style={{
-                    backgroundColor: '#25be7d',
-                    color:'white'
-                }}>
+            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
+                <button
+                    onClick={handlePrevious}
+                    disabled={currentPage === 1}
+                    style={{
+                        backgroundColor: '#25be7d',
+                        color: 'white',
+                        border: 'none',
+                        padding: '10px 20px',
+                        cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                        margin: '0 5px'
+                    }}
+                >
                     Previous
                 </button>
-                 <button style={{ 
-                               margin: '0 10px',
-                               backgroundColor: '#25be7d',
-                               color:'white'
-                 }}>{currentPage}</button>
-                <button onClick={handleNext} disabled={currentPage === totalPages} style={{
-                    backgroundColor: '#25be7d',
-                    color:'white'
-                }}>
+                <button
+                    style={{
+                        backgroundColor: '#25be7d',
+                        color: 'white',
+                        border: 'none',
+                        padding: '10px 20px',
+                        margin: '0 5px'
+                    }}
+                >
+                    {currentPage}
+                </button>
+                <button
+                    onClick={handleNext}
+                    disabled={currentPage === totalPages}
+                    style={{
+                        backgroundColor: '#25be7d',
+                        color: 'white',
+                        border: 'none',
+                        padding: '10px 20px',
+                        cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                        margin: '0 5px'
+                    }}
+                >
                     Next
                 </button>
             </div>
@@ -107,3 +119,4 @@ function EmployeeTable() {
 }
 
 export default EmployeeTable;
+
