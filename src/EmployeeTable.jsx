@@ -17,6 +17,7 @@ function EmployeeTable() {
                 setEmployees(data);
             } catch (error) {
                 setError(error.message);
+                alert('Error fetching data: ' + error.message);  // Alert user about the error
             }
         };
 
@@ -45,7 +46,7 @@ function EmployeeTable() {
     };
 
     if (error) {
-        return <p>{error}</p>;
+        return <p>{error}</p>;  // Display error message in the UI if the fetch fails
     }
 
     return (
@@ -119,4 +120,5 @@ function EmployeeTable() {
 }
 
 export default EmployeeTable;
+
 
