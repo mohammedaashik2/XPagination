@@ -17,17 +17,15 @@ function EmployeeTable() {
                 setEmployees(data);
             } catch (error) {
                 setError(error.message);
-                alert('Error fetching data: ' + error.message);  // Alert user about the error
+                alert("Failed to fetch data");
             }
         };
 
         fetchData();
     }, []);
 
-    // Calculate total pages
     const totalPages = Math.ceil(employees.length / rowsPerPage);
 
-    // Get current page data
     const currentPageData = employees.slice(
         (currentPage - 1) * rowsPerPage,
         currentPage * rowsPerPage
@@ -46,7 +44,7 @@ function EmployeeTable() {
     };
 
     if (error) {
-        return <p>{error}</p>;  // Display error message in the UI if the fetch fails
+        return <p>{error}</p>;
     }
 
     return (
@@ -73,7 +71,6 @@ function EmployeeTable() {
                 </tbody>
             </table>
 
-            {/* Pagination Controls */}
             <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '10px' }}>
                 <button
                     onClick={handlePrevious}
@@ -89,7 +86,7 @@ function EmployeeTable() {
                 >
                     Previous
                 </button>
-                <button
+                <span
                     style={{
                         backgroundColor: '#25be7d',
                         color: 'white',
@@ -99,7 +96,7 @@ function EmployeeTable() {
                     }}
                 >
                     {currentPage}
-                </button>
+                </span>
                 <button
                     onClick={handleNext}
                     disabled={currentPage === totalPages}
@@ -120,5 +117,3 @@ function EmployeeTable() {
 }
 
 export default EmployeeTable;
-
-
